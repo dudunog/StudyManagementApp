@@ -1,0 +1,160 @@
+@page
+@model StudyModel
+@using System.Diagnostics
+@{
+  ViewData["Title"] = "Estudar";
+  var currentDate = DateTime.Today.ToString("yyyy-MM-dd");
+
+  var timer = new Stopwatch();
+}
+
+<br /> <br />
+
+<div class="container">
+  <h1 class="title is-4">Estudar</h1>
+
+  <div class="columns">
+    <div class="column">
+      <div class="columns">
+        <div class="column">
+          <label class="label">Data</label>
+          <input class="input" type="date" value="@currentDate">
+        </div>
+        <div class="column">
+          <label class="label">Tipo de estudo</label>
+          <div class="select">
+            <select>
+              <option>Teoria</option>
+              <option>Exercícios</option>
+              <option>Revisão</option>
+              <option>Exerícios</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <label class="label">Matéria</label>
+        <div class="select">
+          <select>
+            <option>Selecione uma matéria</option>
+            <option>Matéria 01</option>
+            <option>Matéria 02</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="block">
+        <label class="label">Tema</label>
+        <div class="select">
+          <select disabled>
+            <option>Agrupe este estudo a um tema</option>
+            <option>Tema 01</option>
+            <option>Tema 02</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="block">
+        <label class="label">Descrição/Observação</label>
+        <div class="control">
+          <textarea class="textarea" style="resize: none; height: 100px;"
+            placeholder="Descreva o seu estudo para orientar suas revisões. (Ex: Livro Constitucional - pg. 57-69)"
+            rows="10"></textarea>
+        </div>
+      </div>
+
+      <div class="block">
+        <center>
+          <div class="content">
+            <h6 class="title is-6">Deseja gerar revisões automáticas?</h6>
+            <p>Você pode habilitar a opção de revisões propostas pelo nosso sistema para aperfeiçoar seus estudos.
+              Preencha a descrição para orientar suas revisões.</p>
+          </div>
+        </center>
+      </div>
+
+      <div class="block">
+        <center>
+          <div class="control">
+            <label class="radio">
+              <input type="radio" name="foobar" checked>
+              Sim, eu quero!
+            </label>
+            <label class="radio">
+              <input type="radio" name="foobar">
+              Não, obrigado.
+            </label>
+          </div>
+        </center>
+      </div>
+    </div>
+
+    <div class="column">
+      <center>
+        <img src="~/assets/clock.svg" alt="Temporizador" width="80px">
+        <div class="control">
+          <div class="columns">
+            <div class="column">
+              <label class="radio">
+                <input type="radio" name="foobar" checked>
+                Crônometro
+              </label>
+              <hr />
+            </div>
+            <div class="column">
+              <label class="radio">
+                <input type="radio" name="foobar">
+                Manual
+              </label>
+              <hr />
+            </div>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <p>
+              Vou começar a estudar agora e quero cronometrar o tempo líquido.
+            </p>
+          </div>
+          <div class="column">
+            <p>
+              Vou informar o tempo total de duração deste estudo.
+            </p>
+          </div>
+        </div>
+
+        <h1 id="timer" class="title is-1">00:00:00</h1>
+
+        <div class="columns">
+          <div class="column">
+            <button class="button is-warning is-pulled-right" onclick="Modal.openAndCloseModal()">
+              <span class=" icon is-small">
+                <span>Iniciar</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <button class="button is-success is-pulled-right" onclick="Modal.openAndCloseModal()">
+              <span class=" icon is-small">
+                <span>Gravar</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <button class="button is-light is-pulled-right" onclick="Modal.openAndCloseModal()">
+              <span class=" icon is-small">
+                <span>Cancelar</span>
+            </button>
+          </div>
+        </div>
+    </div>
+    </center>
+  </div>
+</div>
+</div>
+</div>

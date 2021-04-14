@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br" class="html has-navbar-fixed-top">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@ViewData["Title"] - StudyManagementApp</title>
+  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+  <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body>
+  <header>
+    <!------ Navbar ------>
+    <nav class="navbar is-info is-fixed-top" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" asp-page="/Index">
+          StudyManagementApp
+          @* <img src="" width="112" height="28"> *@
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="navMenu" aria-expanded="true"
+          data-target="navbarBasicExample" onclick="NavbarBurger.openAndCloseNavbarBurger()">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu" id="navMenu">
+        <div class="navbar-end">
+          <a class="navbar-item" href="/">
+            <img src="~/assets/speedometer.svg" alt="Mural">
+            Mural
+          </a>
+
+          <a class="navbar-item" href="/estudar">
+            <img src="~/assets/play.svg" alt="Iniciar estudo">
+            Iniciar estudo
+          </a>
+
+          <a class="navbar-item" href="materias">
+            <img src="~/assets/book.svg" alt="Matérias">
+            Matérias
+          </a>
+
+          <a class="navbar-item" href="revisoes">
+            <img src="~/assets/layers.svg" alt="Revisões">
+            Revisões
+          </a>
+
+          <a class="navbar-item" href="estudos">
+            <img src="~/assets/calendar.svg" alt="Estudos">
+            Estudos
+          </a>
+
+          <a class="navbar-item" href="resultados">
+            <img src="~/assets/results.svg" alt="Resultados">
+            Resultados
+          </a>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              <img src="~/assets/test.svg" alt="Provas">
+              Provas
+            </a>
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="provas">
+                <img src="~/assets/test.svg" alt="Provas">
+                Provas
+              </a>
+              <a class="navbar-item" href="simulados">
+                <img src="~/assets/test.svg" alt="Simulados">
+                Simulados
+              </a>
+            </div>
+          </div>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              <img src="~/assets/list.svg" alt="Provas">
+              Mais
+            </a>
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="perfil">
+                <img src="~/assets/user.svg" alt="Meu perfil">
+                Meu perfil
+              </a>
+
+              <a class="navbar-item">
+                <img src="~/assets/log-out.svg" alt="Sair">
+                Sair
+              </a>
+            </div>
+          </div>
+        </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <main role="main" class="pb-3">
+      @RenderBody()
+      <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+    </main>
+  </div>
+
+  <footer class="footer footer-padding">
+    <div class="content has-text-centered">
+      <p>&copy; 2021 - StudyManagementApp</p>
+    </div>
+  </footer>
+
+  <script src="~/lib/jquery/dist/jquery.min.js"></script>
+  <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="~/js/site.js" asp-append-version="true"></script>
+
+  @RenderSection("Scripts", required: false)
+</body>
+
+</html>

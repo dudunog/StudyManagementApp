@@ -1,0 +1,103 @@
+﻿@page
+@model IndexModel
+@{
+  ViewData["Title"] = "Home page";
+  <link href='~/lib/fullcalendar/main.css' rel='stylesheet' />
+  <script src='~/lib/fullcalendar/main.js'></script>
+  <script src='~/lib/fullcalendar/locales/pt-br.js'></script>
+  <script src='~/lib/jquery/dist/jquery.min.js'></script>
+  <script src="~/lib/jquery/dist/jquery.minicolors.js"></script>
+  <link href="~/lib/jquery/dist/jquery.minicolors.css" rel="stylesheet">
+}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var calendarEl = document.getElementById('calendar');
+
+    //Calendário
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      locale: 'pt-br',
+      initialView: 'dayGridMonth',
+      editable: false,
+      displayEventTime: false,
+      navLinks: true,
+      headerToolbar: {
+        left: 'prev,next',
+        center: 'title',
+        right: 'timeGridDay,timeGridWeek,dayGridMonth',
+      },
+      titleRangeSeparator: ' à ',
+      events: [
+        {
+          id: 'a',
+          title: 'meu primeiro evento',
+          start: '2021-03-01'
+        }
+      ],
+      eventColor: '#378006',
+      //eventClick:
+    });
+    calendar.setOption('locale', 'pt-br');
+    calendar.render();
+  });
+
+  //Abrir modal
+  const Modal = {
+    openAndCloseModal() {
+      document.querySelector(".modal").classList.toggle("is-active");
+      document.querySelector(".html").classList.toggle("is-clipped");
+    },
+  }
+</script>
+
+<div class="container">
+  <br /> <br />
+
+  <div class="columns is-8">
+    <div class="column is-one-fifth">
+      <h1 class="title is-4">Minha agenda</h1>
+    </div>
+    <div class="column"></div>
+    <div class="column is-one-fifth">
+      <button class="button is-success is-pulled-right" onclick="Modal.openAndCloseModal()">
+        <span class=" icon is-small">
+          <img src="~/assets/plus-white.svg" alt="">
+        </span>
+        <span>Agendar</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="column is-full">
+      <small>Aqui você poderá agendar o prazo limite para o pagamento da inscrição de uma prova, agendar seus
+        compromissos
+        e
+        organizar o que estudará em cada dia.</small>
+    </div>
+  </div>
+
+  <br />
+
+  <div id="calendar"></div>
+
+  <!-- Modal -->
+  <div class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <!-- Cabeçalho do modal -->
+      <header class="modal-card-head">
+        <p class="modal-card-title">Agendar</p>
+        <button class="delete" aria-label="close" onclick="Modal.openAndCloseModal()"></button>
+      </header>
+      <section class="modal-card-body">
+        <!-- Conteúdo do modal -->
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success">Save changes</button>
+        <button class="button" onclick="Modal.openAndCloseModal()">Cancel</button>
+      </footer>
+    </div>
+  </div>
+
+</div>
