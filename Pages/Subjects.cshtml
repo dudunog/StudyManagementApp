@@ -2,7 +2,306 @@
 @model SubjectsModel
 @{
   ViewData["Title"] = "Matérias";
+
+  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+  <script src='~/lib/jquery/dist/jquery.min.js'></script>
+  <script src="~/lib/jquery/dist/jquery.minicolors.js"></script>
+  <link href="~/lib/jquery/dist/jquery.minicolors.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="~/css/subjects.css" />
 }
 
 <br /> <br />
-<h1 class="title is-4">Matérias</h1>
+
+<div class="container">
+  <div class="header-title">
+    <h4 class="title is-4">Matérias</h4>
+    <button class="button is-info" onclick="Modals.openAndCloseModalSubjects()">
+      <span class="icon is-small">
+        <img src="~/assets/plus-white.svg" alt="">
+      </span>
+      <span>Adicionar nova matéria</span>
+    </button>
+  </div>
+
+  <br />
+
+  <div class="columns">
+    <div class="column">
+      <div class="boxes">
+        <div class="box">
+          <button class="button is-small is-warning" onclick="Modals.openAndCloseModalTheme()">
+            <span class="icon is-small">
+              <img src="~/assets/plus.svg" alt="">
+            </span>
+            <span>Temas</span>
+          </button>
+
+          <span class="span">Leicester City</span>
+
+          <button class="button is-small is-has-primary-light ml-1" onclick="Modals.openAndCloseModalStudy()">
+            <span class="icon is-small">
+              <img src="~/assets/zoom-in.svg" alt="">
+            </span>
+            <span>10 estudos</span>
+          </button>
+        </div>
+
+        <div class="box">
+          <button class="button is-small is-warning" onclick="Modals.openAndCloseModalTheme()">
+            <span class="icon is-small">
+              <img src="~/assets/plus.svg" alt="">
+            </span>
+            <span>Temas</span>
+          </button>
+
+          <span class="span">Arsenal</span>
+
+          <button class="button is-small is-has-primary-light" onclick="Modals.openAndCloseModalStudy()">
+            <span class="icon is-small">
+              <img src="~/assets/zoom-in.svg" alt="">
+            </span>
+            <span>10 estudos</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="boxes">
+        <div class="box">
+          <button class="button is-small is-warning" onclick="Modals.openAndCloseModalTheme()">
+            <span class="icon is-small">
+              <img src="~/assets/plus.svg" alt="">
+            </span>
+            <span>Temas</span>
+          </button>
+
+          <span class="span">Tottenham Hotspur</span>
+
+          <button class="button is-small is-has-primary-light" onclick="Modals.openAndCloseModalStudy()">
+            <span class="icon is-small">
+              <img src="~/assets/zoom-in.svg" alt="">
+            </span>
+            <span>10 estudos</span>
+          </button>
+        </div>
+
+        <div class="box">
+          <button class="button is-small is-warning" onclick="Modals.openAndCloseModalTheme()">
+            <span class="icon is-small">
+              <img src="~/assets/plus.svg" alt="">
+            </span>
+            <span>Temas</span>
+          </button>
+
+          <span class="span">City</span>
+
+          <button class="button is-small is-has-primary-light" onclick="Modals.openAndCloseModalStudy()">
+            <span class="icon is-small">
+              <img src="~/assets/zoom-in.svg" alt="">
+            </span>
+            <span>10 estudos</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal - Matérias  -->
+  <div class="modal modal-subjects">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <!-- Cabeçalho do modal -->
+      <header class="modal-card-head">
+        <p class="modal-card-title">Cadastrar matéria</p>
+        <button class="delete" aria-label="close" onclick="Modals.openAndCloseModalSubjects()"></button>
+      </header>
+      <section class="modal-card-body">
+        <!-- Conteúdo do modal -->
+        <p>
+          Edite o título da matéria e dos temas. <br />
+          Caso deseje remover um tema selecione a opção apagar. <br />
+          Para salvar suas alterações clique no botão GRAVAR ao final da tela. <br />
+        </p>
+
+        <br />
+
+        <div class="columns">
+          <div class="column">
+            <div class="columns">
+              <div class="column">
+                <div class="block">
+                  <label class="label">Matéria</label>
+                  <input class="input" type="text">
+                </div>
+              </div>
+              <div class="column">
+                <div class="block">
+                  <label class="label">Cor de identificação</label>
+                  <input class="input form-control" type="text" id="color-subjects" data-control="hue" value="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success">Adicionar</button>
+        <button class="button" onclick="Modals.openAndCloseModalSubjects()">Cancelar</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Modal - Temas -->
+  <div class="modal modal-theme">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <!-- Cabeçalho do modal -->
+      <header class="modal-card-head">
+        <p class="modal-card-title">Editar</p>
+        <button class="delete" aria-label="close" onclick="Modals.openAndCloseModalTheme()"></button>
+      </header>
+      <section class="modal-card-body">
+        <!-- Conteúdo do modal -->
+        <p>
+          Edite o título da matéria e dos temas. <br />
+          Caso deseje remover um tema selecione a opção apagar. <br />
+          Para salvar suas alterações clique no botão GRAVAR ao final da tela. <br />
+        </p>
+
+        <br />
+
+        <div class="columns">
+          <div class="column">
+            <div class="columns">
+              <div class="column">
+                <div class="block">
+                  <label class="label">Matéria</label>
+                  <input class="input" type="text" value="Álgebra">
+                </div>
+              </div>
+              <div class="column">
+                <div class="block">
+                  <label class="label">Cor de identificação</label>
+                  <input class="input form-control" type="text" id="color-theme" data-control="hue" value="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="block">
+          <h5 class="title is-5">Temas desta matéria</h5>
+          <div class="block theme">
+            <input class="input" type="text" value="Teoria elementar dos conjuntos">
+          </div>
+          <div class="block theme">
+            <input class="input" type="text" value="Intervalos reais">
+          </div>
+          <div class="block theme">
+            <input class="input" type="text" value="Potenciação">
+          </div>
+          <div class="block theme">
+            <input class="input" type="text" value="Radiciação">
+          </div>
+        </div>
+
+        <div class="block block-add-theme">
+          <button class="button is-danger" onclick="">
+            <span>Excluir matéria</span>
+          </button>
+          <button class="button is-success">Salvar</button>
+        </div>
+
+        <br />
+
+        <div class="block">
+          <h5 class="title is-5">Adicionar novo tema</h5>
+          <div class="block block-add-theme">
+            <input class="input" type="text">
+            <button class="button is-success">
+              <span class="icon is-small">
+                <img src="~/assets/plus-white.svg" alt="">
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <br />
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button" onclick="Modals.openAndCloseModalTheme()">Cancel</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Modal - Estudos  -->
+  <div class="modal modal-study">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <!-- Cabeçalho do modal -->
+      <header class="modal-card-head">
+        <p class="modal-card-title">Álgebra - estudos registrados</p>
+        <button class="delete" aria-label="close" onclick="Modals.openAndCloseModalStudy()"></button>
+      </header>
+      <section class="modal-card-body">
+        <!-- Conteúdo do modal -->
+        <p>Para editar um estudo clique sobre a data desejada.</p>
+
+        <br />
+
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>14/04/2021</th>
+              <td>01:19:00</td>
+              <td><b>Teoria</b> Fatoração</td>
+            </tr>
+            <tr>
+              <th>14/04/2021</th>
+              <td>01:19:00</td>
+              <td><b>Teoria</b> Fatoração</td>
+            </tr>
+            <tr>
+              <th>14/04/2021</th>
+              <td>01:19:00</td>
+              <td><b>Teoria</b> Fatoração</td>
+            </tr>
+            <tr>
+              <th>14/04/2021</th>
+              <td>01:19:00</td>
+              <td><b>Teoria</b> Fatoração</td>
+            </tr>
+            <tr>
+              <th>14/04/2021</th>
+              <td>01:19:00</td>
+              <td><b>Teoria</b> Fatoração</td>
+            </tr>
+            <tr>
+              <th>14/04/2021</th>
+              <td>01:19:00</td>
+              <td><b>Teoria</b> Fatoração</td>
+            </tr>
+            <tr>
+              <th>14/04/2021</th>
+              <td>01:19:00</td>
+              <td><b>Teoria</b> Fatoração</td>
+            </tr>
+            <tr>
+              <th>14/04/2021</th>
+              <td>01:19:00</td>
+              <td><b>Teoria</b> Fatoração</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button" onclick="Modals.openAndCloseModalStudy()">Fechar</button>
+      </footer>
+    </div>
+  </div>
+</div>
+
+<script src="~/js/subjects.js" asp-append-version="true"></script>

@@ -2,7 +2,55 @@
 @model ProfileModel
 @{
   ViewData["Title"] = "Perfil";
+  <link rel="stylesheet" href="~/css/profile.css" />
 }
 
 <br /> <br />
-<h1 class="title is-4">Meu perfil</h1>
+
+<div class="container">
+  <div class="header-title">
+    <h4 class="title is-4">Meu perfil</h4>
+  </div>
+  <br />
+
+  <div class="row">
+    <div class="block">
+      <label class="label">Nome completo</label>
+      <input class="input" type="text" placeholder="Text input">
+    </div>
+    <div class="block">
+      <label class="label">E-mail/Login</label>
+      <input class="input" type="email" placeholder="Text input">
+    </div>
+    <div class="block">
+      <label class="label">CPF</label>
+      <input class="input" type="number" placeholder="Text input">
+    </div>
+    <div class="block">
+      <label class="label">Data de nascimento</label>
+      <input class="input" type="text" placeholder="Text input">
+    </div>
+    <div class="block">
+      <label class="label">Sexo</label>
+      <input class="input" type="text" placeholder="Text input">
+    </div>
+    <div class="block">
+      <label class="label">Telefone de contato</label>
+      <input class="input" type="number" placeholder="Text input">
+    </div>
+    <div class="block">
+      <label class="label">Cidade</label>
+      <input class="input" type="email" placeholder="Text input">
+    </div>
+    <div class="block">
+      <label class="label">UF</label>
+      <input class="input" type="email" placeholder="Text input">
+    </div>
+  </div>
+
+  <div class="button-a">
+    <button class="button is-success is-pulled-right" onclick="Modal.openAndCloseModal()">
+      <span>Atualizar</span>
+    </button>
+  </div>
+</div>

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "8yG9SHdampv4/8FMBuqdMoKTNsQ2UzghsaNg4KTIN1KMzMe1lG9zIBo51sk/9vQx3F3JjTQxy0Nn9btR+/mdhw==",
+  "dgSpecHash": "ybES5rgD17yJQqoNHe3xpvYKfO0PbSw8EiECqHo3RMCGIvrolugEwCaysUGn39Hji0+sdv5G+bRaRfdRWtRfmw==",
   "success": true,
   "projectFilePath": "/home/eduardo/Documents/git-projects/StudyManagementApp/StudyManagementApp.csproj",
   "expectedPackageFiles": [
+    "/home/eduardo/.nuget/packages/chart.js/2.9.3/chart.js.2.9.3.nupkg.sha512",
     "/home/eduardo/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/home/eduardo/.nuget/packages/microsoft.aspnetcore.cryptography.internal/5.0.4/microsoft.aspnetcore.cryptography.internal.5.0.4.nupkg.sha512",
     "/home/eduardo/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/5.0.4/microsoft.aspnetcore.cryptography.keyderivation.5.0.4.nupkg.sha512",

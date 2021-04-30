@@ -1,0 +1,8 @@
+.header-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.block-color input {
+  margin-left: -3px;
+}

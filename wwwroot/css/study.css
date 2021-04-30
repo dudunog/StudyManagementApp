@@ -1,0 +1,10 @@
+#elementManual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.size-50 {
+  font-size: 40px !important;
+  line-height: 28px !important;
+}

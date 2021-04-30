@@ -2,7 +2,120 @@
 @model ResultsModel
 @{
   ViewData["Title"] = "Resultados";
+  <link rel="stylesheet" href="~/css/results.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.0/dist/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.0/dist/chart.min.js"></script>
 }
 
 <br /> <br />
-<h1 class="title is-4">Resultados</h1>
+
+<div class="container">
+  <div class="header-title">
+    <h4 class="title is-4">Resultados</h4>
+  </div>
+
+  <br />
+
+  <div class="tabs is-toggle is-fullwidth">
+    <ul>
+      <li class="typeChart diary" onclick="Tabs.toggleTypeChart('diary')">
+        <a>
+          <span>Diário</span>
+        </a>
+      </li>
+      <li class="typeChart weekly is-active" onclick="Tabs.toggleTypeChart('weekly')">
+        <a>
+          <span>Semanal</span>
+        </a>
+      </li>
+      <li class="typeChart monthly" onclick="Tabs.toggleTypeChart('monthly')">
+        <a>
+          <span>Mensal</span>
+        </a>
+      </li>
+      <li class="typeChart comparative" onclick="Tabs.toggleTypeChart('comparative')">
+        <a>
+          <span>Comparativo</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="buttons">
+    <button class="button is-warning" onclick="">
+      <span class="icon is-small">
+        <img src="~/assets/plus.svg" alt="">
+      </span>
+      <span>Anterior</span>
+    </button>
+    <button class="button is-warning" onclick="">
+      <span class="icon is-small">
+        <img src="~/assets/plus.svg" alt="">
+      </span>
+      <span>Posterior</span>
+    </button>
+  </div>
+
+
+  <div class="canvas canvas-diary" hidden>
+    <div class="header">
+      <center>
+        <h5 class="title is-5">Gráfico diário</h5>
+        <p class="subtitle is-5">19/04/2021</p>
+      </center>
+    </div>
+
+    <div class="container-canvas-diary">
+      <canvas id="Chart-diary" width="100" height="100"></canvas>
+    </div>
+  </div>
+
+  <div class="canvas canvas-weekly">
+    <div class="header">
+      <center>
+        <h5 class="title is-5">Gráfico semanal</h5>
+
+        <center>
+          <div class="content" hidden>
+            <h6 class="title is-6 has-text-danger">Não há dados para o período informado</h6>
+          </div>
+        </center>
+
+        <p class="subtitle is-5">De 18/04/2021 até 24/04/2021</p>
+      </center>
+    </div>
+
+    <div class="container-canvas">
+      <canvas id="Chart-weekly" width="200" height="80"></canvas>
+    </div>
+  </div>
+
+  <div class="canvas canvas-monthly" hidden>
+    <div class="header">
+      <center>
+        <h5 class="title is-5">Gráfico mensal</h5>
+        <p class="subtitle is-5">Abril de 2021</p>
+      </center>
+    </div>
+
+    <div class="container-canvas">
+      <canvas id="Chart-monthly" width="200" height="80"></canvas>
+    </div>
+  </div>
+
+  <div class="canvas canvas-comparative" hidden>
+    <div class="header">
+      <center>
+        <h5 class="title is-5">Gráfico geral</h5>
+        <p class="subtitle is-5">Total</p>
+      </center>
+    </div>
+
+    <div class="container-canvas-comparative">
+      <canvas id="Chart-comparative" width="200" height="200"></canvas>
+    </div>
+  </div>
+</div>
+
+<script src="~/js/results.js" asp-append-version="true"></script>

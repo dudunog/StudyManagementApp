@@ -2,7 +2,262 @@
 @model SimulationsModel
 @{
   ViewData["Title"] = "Simulados";
+  <link rel="stylesheet" href="~/css/simulations.css" />
+
+  <script src='~/lib/jquery/dist/jquery.min.js'></script>
+  <script src="~/lib/jquery/dist/jquery.minicolors.js"></script>
+  <link href="~/lib/jquery/dist/jquery.minicolors.css" rel="stylesheet">
 }
 
 <br /> <br />
-<h1 class="title is-4">Simulados</h1>
+
+<div class="container">
+  <div class="header-title">
+    <h4 class="title is-4">Simulados</h4>
+    <button class="button is-success" onclick="Modal.openAndCloseModal()">
+      <span class="icon is-small">
+        <img src="~/assets/plus-white.svg" alt="">
+      </span>
+      <span>Novo simulado</span>
+    </button>
+  </div>
+
+  <br />
+
+  <center>
+    <div class="content">
+      <h6 class="title is-6 has-text-danger">Não há dados para o período informado</h6>
+    </div>
+  </center>
+
+  <!-- Modal -->
+  <div class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <!-- Cabeçalho do modal -->
+      <header class="modal-card-head">
+        <p class="modal-card-title">Novo simulado</p>
+        <button class="delete" aria-label="close" onclick="Modal.openAndCloseModal()"></button>
+      </header>
+      <section class="modal-card-body">
+        <!-- Conteúdo do modal -->
+        <div class="block">
+          <label class="label">Nome</label>
+          <input class="input" type="text">
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <div class="columns">
+              <div class="column">
+                <div class="block">
+                  <label class="label">Data do simulado</label>
+                  <input class="input" type="date">
+                </div>
+              </div>
+              <div class="column">
+                <div class="block">
+                  <label class="label">Quanto tempo demorou para fazer o simulado?</label>
+                  <input class="input" type="time">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="block">
+          <label class="label">Cor de identificação</label>
+          <input class="input form-control" type="text" id="color" data-control="hue" value="">
+        </div>
+
+        @* Matérias *@
+        <div class="columns">
+          <div class="column">
+            <label class="label">Matéria</label>
+            <div class="block">
+              <div class="select">
+                <select>
+                  <option>Selecione uma matéria</option>
+                  <option>Matéria 01</option>
+                  <option>Matéria 02</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <label class="label">Questões</label>
+            <input class="input" type="number">
+          </div>
+          <div class="column">
+            <label class="label">Acertos</label>
+            <input class="input" type="number">
+          </div>
+          <div class="column">
+            <label class="label">Observações</label>
+            <div class="control">
+              <textarea class="textarea" style="resize: none; height: 100px;"
+                placeholder="Escreva os temas que você erou na simulado" rows="10"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <label class="label">Matéria</label>
+            <div class="block">
+              <div class="select">
+                <select>
+                  <option>Selecione uma matéria</option>
+                  <option>Matéria 01</option>
+                  <option>Matéria 02</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <label class="label">Questões</label>
+            <input class="input" type="number">
+          </div>
+          <div class="column">
+            <label class="label">Acertos</label>
+            <input class="input" type="number">
+          </div>
+          <div class="column">
+            <label class="label">Observações</label>
+            <div class="control">
+              <textarea class="textarea" style="resize: none; height: 100px;"
+                placeholder="Escreva os temas que você erou na simulado" rows="10"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <label class="label">Matéria</label>
+            <div class="block">
+              <div class="select">
+                <select>
+                  <option>Selecione uma matéria</option>
+                  <option>Matéria 01</option>
+                  <option>Matéria 02</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <label class="label">Questões</label>
+            <input class="input" type="number">
+          </div>
+          <div class="column">
+            <label class="label">Acertos</label>
+            <input class="input" type="number">
+          </div>
+          <div class="column">
+            <label class="label">Observações</label>
+            <div class="control">
+              <textarea class="textarea" style="resize: none; height: 100px;"
+                placeholder="Escreva os temas que você erou na simulado" rows="10"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <label class="label">Matéria</label>
+            <div class="block">
+              <div class="select">
+                <select>
+                  <option>Selecione uma matéria</option>
+                  <option>Matéria 01</option>
+                  <option>Matéria 02</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <label class="label">Questões</label>
+            <input class="input" type="number">
+          </div>
+          <div class="column">
+            <label class="label">Acertos</label>
+            <input class="input" type="number">
+          </div>
+          <div class="column">
+            <label class="label">Observações</label>
+            <div class="control">
+              <textarea class="textarea" style="resize: none; height: 100px;"
+                placeholder="Escreva os temas que você erou na simulado" rows="10"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <label class="label">Matéria</label>
+            <div class="block">
+              <div class="select">
+                <select>
+                  <option>Selecione uma matéria</option>
+                  <option>Matéria 01</option>
+                  <option>Matéria 02</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <label class="label">Questões</label>
+            <input class="input" type="number">
+          </div>
+          <div class="column">
+            <label class="label">Acertos</label>
+            <input class="input" type="number">
+          </div>
+          <div class="column">
+            <label class="label">Observações</label>
+            <div class="control">
+              <textarea class="textarea" style="resize: none; height: 100px;"
+                placeholder="Escreva os temas que você erou na simulado" rows="10"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <label class="label">Matéria</label>
+            <div class="block">
+              <div class="select">
+                <select>
+                  <option>Selecione uma matéria</option>
+                  <option>Matéria 01</option>
+                  <option>Matéria 02</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <label class="label">Questões</label>
+            <input class="input" type="number">
+          </div>
+          <div class="column">
+            <label class="label">Acertos</label>
+            <input class="input" type="number">
+          </div>
+          <div class="column">
+            <label class="label">Observações</label>
+            <div class="control">
+              <textarea class="textarea" style="resize: none; height: 100px;"
+                placeholder="Escreva os temas que você erou na simulado" rows="10"></textarea>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success">Cadastrar simulado</button>
+        <button class="button" onclick="Modal.openAndCloseModal()">Cancelar</button>
+      </footer>
+    </div>
+  </div>
+</div>
+
+<script src="~/js/simulations.js" asp-append-version="true"></script>

@@ -3,15 +3,14 @@
 @using System.Diagnostics
 @{
   ViewData["Title"] = "Estudar";
+  <link rel="stylesheet" href="~/css/study.css" />
   var currentDate = DateTime.Today.ToString("yyyy-MM-dd");
-
-  var timer = new Stopwatch();
 }
 
 <br /> <br />
 
 <div class="container">
-  <h1 class="title is-4">Estudar</h1>
+  <h4 class="title is-4">Estudar</h4>
 
   <div class="columns">
     <div class="column">
@@ -68,93 +67,126 @@
         <center>
           <div class="content">
             <h6 class="title is-6">Deseja gerar revisões automáticas?</h6>
-            <p>Você pode habilitar a opção de revisões propostas pelo nosso sistema para aperfeiçoar seus estudos.
-              Preencha a descrição para orientar suas revisões.</p>
           </div>
         </center>
       </div>
 
       <div class="block">
         <center>
-          <div class="control">
-            <label class="radio">
-              <input type="radio" name="foobar" checked>
-              Sim, eu quero!
-            </label>
-            <label class="radio">
-              <input type="radio" name="foobar">
-              Não, obrigado.
-            </label>
-          </div>
+          <form>
+            <div class="control">
+              <label class="radio">
+                <input type="radio" name="foobar" checked>
+                Sim, eu quero!
+              </label>
+              <label class="radio">
+                <input type="radio" name="foobar">
+                Não, obrigado.
+              </label>
+            </div>
+          </form>
         </center>
       </div>
     </div>
 
     <div class="column">
       <center>
-        <img src="~/assets/clock.svg" alt="Temporizador" width="80px">
-        <div class="control">
-          <div class="columns">
-            <div class="column">
-              <label class="radio">
-                <input type="radio" name="foobar" checked>
-                Crônometro
-              </label>
-              <hr />
-            </div>
-            <div class="column">
-              <label class="radio">
-                <input type="radio" name="foobar">
-                Manual
-              </label>
-              <hr />
-            </div>
+        @* <form>
+          <div class="control">
+          <label class="radio">
+          <input type="radio" name="foobar" value="C" checked>
+          Crônometro
+          </label>
+
+          <label class="radio">
+          <input type="radio" name="foobar" value="M">
+          Manual
+          </label>
           </div>
+          </form> *@
+
+        <div class="tabs is-toggle is-fullwidth">
+          <ul>
+            <li class="crono is-active" onclick="Tabs.toggleCrono()">
+              <a>
+                <span>Crônometro</span>
+              </a>
+            </li>
+            <li class="manual" onclick="Tabs.toggleManual()">
+              <a>
+                <span>Manual</span>
+              </a>
+            </li>
+          </ul>
         </div>
-        <div class="columns">
-          <div class="column">
-            <p>
-              Vou começar a estudar agora e quero cronometrar o tempo líquido.
+
+        <br />
+
+        <div id="elementTimer">
+          <h1 id="timer" class="title is-1">00:00:00</h1>
+        </div>
+
+        <br />
+
+        <div id="elementManual" hidden>
+          <div class="field is-horizontal" width="50px">
+            <p class="hora-manual">
+            <p class="control">
+              <input class="input" type="text" placeholder="Hora" maxlength="2" data-rule-max="24" id="hora" name="hora"
+                size="2px">
             </p>
-          </div>
-          <div class="column">
-            <p>
-              Vou informar o tempo total de duração deste estudo.
+            <span class="size-50">:</span>
+            <p class="control">
+              <input class="input" type="text" placeholder="Min" maxlength="2" data-rule-max="59" id="minuto"
+                name="minuto" required="" aria-required="true" size="2px">
+            </p>
             </p>
           </div>
         </div>
 
-        <h1 id="timer" class="title is-1">00:00:00</h1>
+
+        <br /> <br />
 
         <div class="columns">
           <div class="column">
-            <button class="button is-warning is-pulled-right" onclick="Modal.openAndCloseModal()">
-              <span class=" icon is-small">
+            <p class="control">
+              <button class="button is-warning is-pulled-right" id="button-play" onclick="Modal.openAndCloseModal()">
+                <span class="icon is-small">
+                  <img src="~/assets/play.svg" alt="" width="19px">
+                </span>
                 <span>Iniciar</span>
-            </button>
+              </button>
+            </p>
           </div>
-        </div>
 
-        <div class="columns">
           <div class="column">
-            <button class="button is-success is-pulled-right" onclick="Modal.openAndCloseModal()">
-              <span class=" icon is-small">
+            <p class="control">
+              <button class="button is-success is-pulled-right" onclick="Modal.openAndCloseModal()">
+                <span class="icon is-small">
+                  <img src="~/assets/check-square-white.svg" alt="" width="19px">
+                </span>
+
                 <span>Gravar</span>
-            </button>
+              </button>
+            </p>
           </div>
-        </div>
 
-        <div class="columns">
           <div class="column">
-            <button class="button is-light is-pulled-right" onclick="Modal.openAndCloseModal()">
-              <span class=" icon is-small">
+            <p class="control">
+              <button class="button is-light is-pulled-right" id="button-stop" onclick="Modal.openAndCloseModal()">
+                <span class="icon is-small">
+                  <img src="~/assets/x-circle.svg" alt="" width="19px">
+                </span>
                 <span>Cancelar</span>
-            </button>
+              </button>
+            </p>
           </div>
         </div>
+      </center>
     </div>
-    </center>
   </div>
 </div>
 </div>
 </div>
+
+<script src="~/js/study.js" asp-append-version="true"></script>

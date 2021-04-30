@@ -1,0 +1,14 @@
+.block {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.button-a {
+  float: left;
+}
+
+@media (max-width: 755px) {
+  .button-a {
+    margin-top: 1.5rem;
+  }
+}

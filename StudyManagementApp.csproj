@@ -8,5 +8,6 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.4"/>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.6"/>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.4"/>
+    <PackageReference Include="Chart.js" Version="2.9.3"/>
   </ItemGroup>
 </Project>

@@ -2,80 +2,39 @@
 @model IndexModel
 @{
   ViewData["Title"] = "Home page";
+
+  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
   <link href='~/lib/fullcalendar/main.css' rel='stylesheet' />
   <script src='~/lib/fullcalendar/main.js'></script>
   <script src='~/lib/fullcalendar/locales/pt-br.js'></script>
+
   <script src='~/lib/jquery/dist/jquery.min.js'></script>
   <script src="~/lib/jquery/dist/jquery.minicolors.js"></script>
   <link href="~/lib/jquery/dist/jquery.minicolors.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="~/css/index.css" />
 }
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var calendarEl = document.getElementById('calendar');
-
-    //Calendário
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      locale: 'pt-br',
-      initialView: 'dayGridMonth',
-      editable: false,
-      displayEventTime: false,
-      navLinks: true,
-      headerToolbar: {
-        left: 'prev,next',
-        center: 'title',
-        right: 'timeGridDay,timeGridWeek,dayGridMonth',
-      },
-      titleRangeSeparator: ' à ',
-      events: [
-        {
-          id: 'a',
-          title: 'meu primeiro evento',
-          start: '2021-03-01'
-        }
-      ],
-      eventColor: '#378006',
-      //eventClick:
-    });
-    calendar.setOption('locale', 'pt-br');
-    calendar.render();
-  });
-
-  //Abrir modal
-  const Modal = {
-    openAndCloseModal() {
-      document.querySelector(".modal").classList.toggle("is-active");
-      document.querySelector(".html").classList.toggle("is-clipped");
-    },
-  }
-</script>
 
 <div class="container">
   <br /> <br />
 
-  <div class="columns is-8">
-    <div class="column is-one-fifth">
-      <h1 class="title is-4">Minha agenda</h1>
-    </div>
-    <div class="column"></div>
-    <div class="column is-one-fifth">
-      <button class="button is-success is-pulled-right" onclick="Modal.openAndCloseModal()">
-        <span class=" icon is-small">
-          <img src="~/assets/plus-white.svg" alt="">
-        </span>
-        <span>Agendar</span>
-      </button>
-    </div>
+  <div class="header-title">
+    <h4 class="title is-4">Minha agenda</h4>
+    <button class="button is-success is-pulled-right" onclick="Modal.openAndCloseModal()">
+      <span class=" icon is-small">
+        <img src="~/assets/plus-white.svg" alt="">
+      </span>
+      <span>Agendar</span>
+    </button>
   </div>
 
-  <div class="columns">
-    <div class="column is-full">
-      <small>Aqui você poderá agendar o prazo limite para o pagamento da inscrição de uma prova, agendar seus
-        compromissos
-        e
-        organizar o que estudará em cada dia.</small>
-    </div>
-  </div>
+  <p>
+    Aqui você poderá agendar o prazo limite para o pagamento da inscrição de uma prova, agendar seus
+    compromissos
+    e
+    organizar o que estudará em cada dia.
+  </p>
 
   <br />
 
@@ -92,12 +51,76 @@
       </header>
       <section class="modal-card-body">
         <!-- Conteúdo do modal -->
+        <div class="columns">
+          <div class="column">
+            <div class="columns">
+              <div class="column">
+                <div class="block">
+                  <label class="label">Data</label>
+                  <input class="input" type="date">
+                </div>
+              </div>
+              <div class="column">
+                <div class="block">
+                  <label class="label">Recorrência</label>
+                  <div class="select">
+                    <select>
+                      <option>Selecione o período</option>
+                      <option>Semanal</option>
+                      <option>Diário</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="block">
+          <label class="label">Titulo</label>
+          <input class="input" type="text">
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <div class="columns">
+              <div class="column">
+                <div class="block block-color">
+                  <label class="label">Cor de identificação</label>
+                  <input class="input form-control" type="text" id="color" data-control="hue" value="">
+                </div>
+              </div>
+              <div class="column">
+                <div class="block">
+                  <label class="label">Matéria</label>
+                  <div class="select">
+                    <select>
+                      <option>Selecione uma matéria</option>
+                      <option>Matéria 01</option>
+                      <option>Matéria 02</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="block">
+          <label class="label">Descrição/Observação</label>
+          <div class="control">
+            <textarea class="textarea" style="resize: none; height: 100px;"
+              placeholder="Descreva o seu estudo para orientar suas revisões. (Ex: Livro Constitucional - pg. 57-69)"
+              rows="10"></textarea>
+          </div>
+        </div>
       </section>
       <footer class="modal-card-foot">
-        <button class="button is-success">Save changes</button>
-        <button class="button" onclick="Modal.openAndCloseModal()">Cancel</button>
+        <button class="button is-success">Agendar</button>
+        <button class="button" onclick="Modal.openAndCloseModal()">Cancelar</button>
       </footer>
     </div>
   </div>
-
 </div>
+
+<script src="~/js/index.js" asp-append-version="true"></script>
